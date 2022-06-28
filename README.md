@@ -8,6 +8,9 @@ cd <your project name>
 rm -Rf .git
 git init
 ```
+
+Or press **Use this template** and setup your new repository
+
 ### Update deployment files
 Update the following files to reflect your project
 * Dockerfile
