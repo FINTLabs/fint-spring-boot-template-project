@@ -34,7 +34,7 @@ jobs:
 ##
 ## Enable the clusters you want to deploy to
 ##
-
+#
 #      - name: Set the target Beta cluster.
 #        uses: azure/aks-set-context@v1
 #        with:
@@ -51,10 +51,17 @@ jobs:
 #            ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
 #          namespace: ${{ env.NAMESPACE }}
 #
-#      - name: Set the target Api cluster.
-#        uses: azure/aks-set-context@v1
+#      - uses: azure/login@v1
 #        with:
 #          creds: '${{ secrets.AKS_API_FINT_GITHUB }}'
+#
+#      - uses: azure/use-kubelogin@v1.1
+#        with:
+#          kubelogin-version: 'v0.0.26'
+#
+#      - name: Set the target Api cluster.
+#        uses: azure/aks-set-context@v3
+#        with:
 #          cluster-name: ${{ env.API_CLUSTER_NAME }}
 #          resource-group: ${{ env.API_CLUSTER_RESOURCE_GROUP }}
 #
